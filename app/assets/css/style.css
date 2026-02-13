@@ -1,6 +1,5 @@
-@import "tailwindcss";
-
-/* tailwind root */
-@theme {
-  --bg-color: #00dc82;
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
 }
