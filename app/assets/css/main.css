@@ -1,6 +1,0 @@
-@import "tailwindcss";
-
-/* tailwind root */
-@theme {
-  --bg-color: #00dc82;
-}
