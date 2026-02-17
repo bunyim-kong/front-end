@@ -70,9 +70,13 @@
     <div class="max-w-6xl mx-auto -mt-20 bg-[#faf6e9] rounded-xl shadow p-6 flex gap-6 items-center text-white">
 
       <!-- LOGO -->
-      <div class="w-28 h-28 bg-[#faf6e9] border-4 border-[#757a79] rounded-lg flex items-center justify-center text-[#141010] font-bold text-lg">
-        Wing<br>Bank
-      </div>
+    <div class="w-28 h-28 bg-white border-4 border-gray-300 rounded-lg flex items-center justify-center">
+    <img
+    src="https://i.pinimg.com/1200x/8c/60/0e/8c600eac1bf06ecd663db232c4611a39.jpg"
+    alt="Wing Bank logo"
+    class="max-w-full max-h-full"/>
+    </div>
+
 
       <!-- INFO -->
       <div class="flex-1">
@@ -88,9 +92,9 @@
         <!-- TABS -->
         <div class="flex gap-6 mt-4 text-[#2d4059] font-medium">
           <span class="border-b-2 border-[#2d4059] pb-1 cursor-pointer">About</span>
-          <span class="cursor-pointer">Jobs</span>
-          <span class="cursor-pointer">Gallery</span>
-          <span class="cursor-pointer">Awards</span>
+          <span class="cursor-pointer"><ul><li><a href="">Jobs</a></li></ul></span>
+          <span class="cursor-pointer"><ul><li><a href="">Gallery</a></li></ul></span>
+          <span class="cursor-pointer"><ul><li><a href="">Awards</a></li></ul></span>
         </div>
       </div>
     </div>
@@ -136,9 +140,34 @@
       <div class="text-center mt-8 text-[#2d4059] font-semibold cursor-pointer">
         See All Jobs
       </div>
+ 
 
     </section>
+
+    <!-- the section baner -->
+ <section class="max-w-6xl mx-auto mt-6 bg-[#faf6e9] pt-3 rounded-xl shadow p-3 text-[#141010]">
+    <div class="w-full aspect-[11/5] rounded-lg overflow-hidden">
+    <img 
+    src="https://cambodiainvestmentreview.com/wp-content/uploads/2025/03/Capture-23.jpg"
+    alt="Wing Bank Gallery"
+    class="w-full h-full object-cover"
+  />
+    </div>
+    <div class="w-full aspect-[18/5] rounded-lg overflow-hidden mt-4 flex gap-4">
+    <img 
+    src="https://cambodiainvestmentreview.com/wp-content/uploads/2025/03/Capture-24.jpg"
+    alt="Wing Bank Gallery 1"
+    class="w-50 h-full object-cover">
+    <img 
+    src="https://i.pinimg.com/736x/a5/04/42/a504425005a478b6088ae585eee8ec5e.jpg"
+    alt="Wing Bank Gallery 2"
+    class="w-full h-full object-cover">
   </div>
+
+</section>
+
+  </div>
+ 
 </template>
 
 <script setup>
