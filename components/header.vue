@@ -12,7 +12,7 @@
             <li><NuxtLink to="/">Home</NuxtLink></li>
             <li><NuxtLink to="/">Job Category</NuxtLink></li>
             <li><NuxtLink to="/">All Company</NuxtLink></li>
-            <li><NuxtLink to="/">About</NuxtLink></li>
+            <li><NuxtLink to="/about">About</NuxtLink></li>
           </ul>
         </div>
       </div>
