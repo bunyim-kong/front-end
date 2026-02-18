@@ -54,7 +54,7 @@
         <p class="font-bold">
             <span class="text-primary text-[26px] mr-2 tracking-tighter">PeopleCare</span><span class="text-red-500 text-[26px] tracking-tighter">Solution</span>
             <br /><br>
-            <span class="font-medium text-slate-500">Connecting talent since 2026</span>
+            <span class="font-medium text-slate-500">© 2026 PeopleCare Solutions. All rights reserved.</span>
         </p>
         </aside>
         
