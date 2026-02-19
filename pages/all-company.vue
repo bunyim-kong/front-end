@@ -1,14 +1,16 @@
 <template>
   <!-- SEARCH BAR -->
-  <div class="flex justify-center px-4 py-6 bg-[#1abb9c] mt-11">
-    <div class="flex w-full max-w-6xl items-center gap-2 rounded-full bg-[#faf6e9] px-4 py-2 shadow-md border border-[#757a79]/30 transition-all">
+    <div 
+          class="flex justify-center px-4 py-6 bg-[#1abb9c] mt-11">
+    <div 
+          class="flex w-full max-w-6xl items-center gap-2 rounded-full bg-[#faf6e9] px-4 py-2 shadow-md border border-[#757a79]/30 transition-all">
 
       <!-- Search -->
       <div class="flex flex-[1.5] items-center gap-2 px-2">
-        <svg class="h-5 w-5 text-[#2d4059] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-        <input type="text" placeholder="Search keywords..." class="w-full bg-[#faf6e9] text-[#141010] text-sm font-medium outline-none placeholder-[#757a79]" />
+         <svg class="h-5 w-5 text-[#2d4059] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+         </svg>
+         <input type="text" placeholder="Search keywords..." class="w-full bg-[#faf6e9] text-[#141010] text-sm font-medium outline-none placeholder-[#757a79]" />
       </div>
 
       <div class="h-8 w-[1px] bg-[#757a79]/40"></div>
@@ -50,32 +52,32 @@
       <!-- Button -->
       <button class="ml-2 flex items-center gap-1.5 rounded-full bg-[#faf6e9] px-6 py-2.5 text-sm font-bold text-[#141010] shadow-sm border border-[#757a79]/30">
         <svg class="h-4 w-4 text-[#2d4059]" viewBox="0 0 24 24" fill="none">
-          <path d="M12 3L14.5 9L21 11.5L14.5 14L12 21L9.5 14L3 11.5L9.5 9L12 3Z" fill="currentColor"/>
+        <path d="M12 3L14.5 9L21 11.5L14.5 14L12 21L9.5 14L3 11.5L9.5 9L12 3Z" fill="currentColor"/>
         </svg>
         <span>Research</span>
       </button>
 
-    </div>
-  </div>
+      </div>
+      </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="bg-[#1abb9c] pt-12"> <!-- use bg color -->
-    <!-- HEADER -->
-    <section class=" px-16 pt-12 pb-28">
+        <!-- MAIN CONTENT -->
+        <div class="bg-[#1abb9c] pt-12"> <!-- use bg color -->
+        <!-- HEADER -->
+<section class=" px-16 pt-12 pb-28">
       <h1 class="text-4xl text-[#763feb] font-bold">Wing Bank</h1>
       <p class="text-2xl text-red-500 mt-2 opacity-90">Careers at Wing Bank</p>
-    </section>
+</section>
 
-    <!-- COMPANY CARD -->
-    <div class="max-w-6xl mx-auto -mt-20 bg-[#faf6e9] rounded-xl shadow p-6 flex gap-6 items-center text-white">
+       <!-- COMPANY CARD -->
+        <div class="max-w-6xl mx-auto -mt-20 bg-[#faf6e9] rounded-xl shadow p-6 flex gap-6 items-center text-white">
 
-      <!-- LOGO -->
-    <div class="w-28 h-28 bg-white border-4 border-gray-300 rounded-lg flex items-center justify-center">
-    <img
-    src="https://i.pinimg.com/1200x/8c/60/0e/8c600eac1bf06ecd663db232c4611a39.jpg"
-    alt="Wing Bank logo"
-    class="max-w-full max-h-full"/>
-    </div>
+        <!-- LOGO -->
+      <div class="w-28 h-28 bg-white border-4 border-gray-300 rounded-lg flex items-center justify-center">
+        <img
+        src="https://i.pinimg.com/1200x/8c/60/0e/8c600eac1bf06ecd663db232c4611a39.jpg"
+        alt="Wing Bank logo"
+        class="max-w-full max-h-full"/>
+      </div>
 
 
       <!-- INFO -->
@@ -90,24 +92,24 @@
         </p>
 
         <!-- TABS -->
-        <div class="flex gap-6 mt-4 text-[#2d4059] font-medium">
-        </div>
-      </div>
+    <div class="flex gap-6 mt-4 text-[#2d4059] font-medium">
     </div>
-     <!-- JOB SECTION -->
+    </div>
+    </div>
+         <!-- JOB SECTION -->
     <section class="max-w-6xl mx-auto mt-8 bg-[#faf6e9] rounded-xl shadow p-6 text-[#141010]">
-      <h3 class="text-lg font-semibold mb-6">Recent job openings</h3>
+         <h3 class="text-lg font-semibold mb-6">Recent job openings</h3>
 
-      <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 gap-6">
 
         <!-- JOB -->
         <div class="border-r md:pr-4">
-          <h4 class="text-[#2d4059] font-semibold">
+            <h4 class="text-[#2d4059] font-semibold">
             Capital Balance Sheet Management Manager
-          </h4>
-          <p class="text-[#757a79] mt-2">
+            </h4>
+            <p class="text-[#757a79] mt-2">
             Phnom Penh • Finance, Accounting, Audit
-          </p>
+            </p>
         </div>
 
         <!-- JOB -->
@@ -150,17 +152,17 @@
     </div>
 
     <!-- job section -->
-      <div class="max-w-6xl mx-auto bg-white mt-4 text-[#141010] text-base/6 p-4 rounded-xl shadow">
+    <div class="max-w-6xl mx-auto bg-white mt-4 text-[#141010] text-base/6 p-4 rounded-xl shadow">
       <h2 class=" text-xl font-bold text-red-500 font-semibold mb-4">Featured Jobs</h2>
-        <div class="max-w-md  bg-white rounded-2xl shadow-md p-5 hover:shadow-lg transition">
+    <div class="max-w-md  bg-white rounded-2xl shadow-md p-5 hover:shadow-lg transition">
           
-  <!-- Job Title -->
-  <h2 class=" font-bold text-[#763feb]">Frontend Developer</h2>
+    <!-- Job Title -->
+       <h2 class=" font-bold text-[#763feb]">Frontend Developer</h2>
 
-  <!-- Company -->
-  <p class="text-sm text-[#757a79] mt-1">ABC Tech Company</p>
+    <!-- Company -->
+       <p class="text-sm text-[#757a79] mt-1">ABC Tech Company</p>
 
-  <!-- Info Row -->
+    <!-- Info Row -->
   <div class="flex flex-wrap gap-4 mt-3 text-sm text-[#2d4059]">
      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
      <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -187,7 +189,7 @@
     Apply Now
   </button>
 
-</div>
+    </div>
 
     </div>
    
@@ -266,49 +268,49 @@
     </div>
 
     <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 group">
-      <div class="w-full sm:w-[320px] shrink-0 bg-gray-50 overflow-hidden">
+    <div class="w-full sm:w-[320px] shrink-0 bg-gray-50 overflow-hidden">
         <img 
           src="https://cdn.kiripost.com/static/images/W7303058.2e16d0ba.fill-960x540.jpg" 
           class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
         >
-      </div>
-      <div class="p-5 flex flex-col justify-between flex-1">
+    </div>
+    <div class="p-5 flex flex-col justify-between flex-1">
         <div>
           <h3 class="text-lg font-bold text-red-600 line-clamp-1 uppercase">Digital Payment Innovation</h3>
           <p class="text-sm text-gray-600 mt-2 leading-relaxed line-clamp-3">
             Awarded for Wing Bank's role as a primary mover in the cashless revolution. By facilitating secure, instant QR payments and international card transactions, the bank has significantly modernized the digital payment landscape for merchants and travelers across the Kingdom.
           </p>
-        </div>
-        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+    </div>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
           <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
-            VISA PARTNERSHIP
+          VISA PARTNERSHIP
           </span>
           <span class="text-xs font-bold text-red-600">2024</span>
-        </div>
-      </div>
+    </div>
+    </div>
     </div>
 
     <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 group">
-      <div class="w-full sm:w-[320px] shrink-0 bg-gray-50 overflow-hidden">
+    <div class="w-full sm:w-[320px] shrink-0 bg-gray-50 overflow-hidden">
         <img 
           src="https://www.khmertimeskh.com/wp-content/uploads/2023/12/1-Main-.jpg" 
           class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
         >
-      </div>
-      <div class="p-5 flex flex-col justify-between flex-1">
-        <div>
+    </div>
+    <div class="p-5 flex flex-col justify-between flex-1">
+    <div>
           <h3 class="text-lg font-bold text-red-600 line-clamp-1 uppercase">Best Consumer Digital Bank</h3>
           <p class="text-sm text-gray-600 mt-2 leading-relaxed line-clamp-3">
-            Named by Global Finance as the leader in consumer digital banking. This recognizes the Wing Bank App as a top-tier financial ecosystem, offering everything from utility payments and payroll to advanced investment tools for millions of users.
+          Named by Global Finance as the leader in consumer digital banking. This recognizes the Wing Bank App as a top-tier financial ecosystem, offering everything from utility payments and payroll to advanced investment tools for millions of users.
           </p>
-        </div>
-        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+    </div>
+    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
           <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
-            DIGITAL BANKING
+          DIGITAL BANKING
           </span>
           <span class="text-xs font-bold text-red-600">2023</span>
-        </div>
-      </div>
+    </div>
+    </div>
     </div>
 
   </div>
