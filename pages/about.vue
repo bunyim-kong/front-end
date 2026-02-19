@@ -51,6 +51,48 @@
         </div>
       </section>
 
+      <!-- services -->
+      <section class="container">
+        <h1 class="text-4xl font-bold text-center text-slate-900 mt-6 mb-8">Our Services</h1>
+
+        <div class="content grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8 mb-16">
+          <div class="service-card bg-white border-2 border-black-900 p-6 rounded-xl transition-all duration-300 ease-in-out hover:translate-y-[-8px]">
+            <div class="header-card flex items-center gap-4 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 p-2 bg-[#763feb] text-[#fbf3f3] rounded-[10px] mb-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+              </svg>
+
+              <h2 class="text-2xl font-semibold text-primary mb-2">Trust & Security</h2>
+            </div>
+            <p class="text-slate-600">We manually vet every job listing and verify employer profiles to ensure you’re only applying to legitimate, high-quality opportunities in a secure environment.</p>
+          </div>
+
+          <div class="service-card bg-white border-2 border-black-900 p-6 rounded-xl transition-all duration-300 ease-in-out hover:translate-y-[-8px]">
+            <div class="header-card flex items-center gap-4 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 p-2 bg-[#763feb] text-[#fbf3f3] rounded-[10px] mb-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+              </svg>
+
+
+              <h2 class="text-2xl font-semibold text-primary mb-2">Career Growth</h2>
+            </div>
+            <p class="text-slate-600">Access professional resume builders, salary benchmark data, and expert interview tips designed to give you a competitive edge in today’s market.</p>
+          </div>
+
+          <div class="service-card bg-white border-2 border-black-900 p-6 rounded-xl transition-all duration-300 ease-in-out hover:translate-y-[-8px]">
+            <div class="header-card flex items-center gap-4 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 p-3 bg-[#763feb] text-[#fbf3f3] rounded-[10px] mb-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+              </svg>
+
+
+              <h2 class="text-2xl font-semibold text-primary mb-2">Direct Connection</h2>
+            </div>
+            <p class="text-slate-600">Our platform facilitates direct communication between talent and hiring managers, allowing for faster feedback and more transparent hiring conversations.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="bg-white rounded-2xl p-8 border-2 border-black-900 grid lg:grid-cols-2 gap-8 items-stretch">
         <div class="rounded-3xl p-8 md:p-12 flex flex-col justify-between">
             <div class="max-w-2xl">
