@@ -1,26 +1,25 @@
 <template>
-  <!-- SEARCH BAR -->
-    <div 
-          class="flex justify-center px-4 py-6 bg-[#1abb9c] mt-11">
-    <div 
-          class="flex w-full max-w-6xl items-center gap-2 rounded-full bg-[#faf6e9] px-4 py-2 shadow-md border border-[#757a79]/30 transition-all">
 
-      <!-- Search -->
+  <div 
+          class="flex justify-center px-4 py-6 bg-white border-b border-gray-200 mt-11">
+    <div 
+          class="flex w-full max-w-6xl items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm border border-gray-300 transition-all">
+
       <div class="flex flex-[1.5] items-center gap-2 px-2">
-         <svg class="h-5 w-5 text-[#2d4059] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+         <svg class="h-5 w-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
          </svg>
-         <input type="text" placeholder="Search keywords..." class="w-full bg-[#faf6e9] text-[#141010] text-sm font-medium outline-none placeholder-[#757a79]" />
+         <input type="text" placeholder="Search keywords..." class="w-full bg-white text-gray-800 text-sm font-medium outline-none placeholder-gray-400" />
       </div>
 
-      <div class="h-8 w-[1px] bg-[#757a79]/40"></div>
+      <div class="h-8 w-[1px] bg-gray-200"></div>
 
-      <!-- Location -->
       <div class="flex flex-1 items-center gap-2 px-2">
-        <svg class="h-5 w-5 text-[#2d4059] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class="h-5 w-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
         </svg>
-        <select class="w-full appearance-none bg-[#faf6e9] text-[#141010] text-sm font-medium rounded-lg px-3 py-2 pr-8 border border-[#757a79]/40 hover:border-[#2d4059] cursor-pointer">
+        <!-- Research section -->
+        <select class="w-full appearance-none bg-white text-gray-800 text-sm font-medium rounded-lg px-3 py-2 pr-8 border border-gray-200 hover:border-gray-400 cursor-pointer">
           <option disabled selected>Location</option>
           <option>Phnom Penh</option>
           <option>Siem Reap</option>
@@ -31,14 +30,13 @@
         </select>
       </div>
 
-      <div class="h-8 w-[1px] bg-[#757a79]/40"></div>
+      <div class="h-8 w-[1px] bg-gray-200"></div>
 
-      <!-- Job Type -->
       <div class="flex flex-1 items-center gap-2 px-2">
-        <svg class="h-5 w-5 text-[#2d4059] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class="h-5 w-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
-        <select class="w-full appearance-none bg-[#faf6e9] text-[#141010] text-sm font-medium rounded-lg px-3 py-2 pr-8 border border-[#757a79]/40 hover:border-[#2d4059] cursor-pointer">
+        <select class="w-full appearance-none bg-white text-gray-800 text-sm font-medium rounded-lg px-3 py-2 pr-8 border border-gray-200 hover:border-gray-400 cursor-pointer">
           <option disabled selected>Job Type</option>
           <option>HR</option>
           <option>Admin</option>
@@ -49,9 +47,8 @@
         </select>
       </div>
 
-      <!-- Button -->
-      <button class="ml-2 flex items-center gap-1.5 rounded-full bg-[#faf6e9] px-6 py-2.5 text-sm font-bold text-[#141010] shadow-sm border border-[#757a79]/30">
-        <svg class="h-4 w-4 text-[#2d4059]" viewBox="0 0 24 24" fill="none">
+      <button class="ml-2 flex items-center gap-1.5 rounded-full bg-white px-6 py-2.5 text-sm font-bold text-gray-800 shadow-sm border border-gray-300">
+        <svg class="h-4 w-4 text-gray-600" viewBox="0 0 24 24" fill="none">
         <path d="M12 3L14.5 9L21 11.5L14.5 14L12 21L9.5 14L3 11.5L9.5 9L12 3Z" fill="currentColor"/>
         </svg>
         <span>Research</span>
@@ -60,19 +57,14 @@
       </div>
       </div>
 
-        <!-- MAIN CONTENT -->
-        <div class="bg-[#1abb9c] pt-12"> <!-- use bg color -->
-        <!-- HEADER -->
-<section class=" px-16 pt-12 pb-28">
-      <h1 class="text-4xl text-[#763feb] font-bold">Wing Bank</h1>
-      <p class="text-2xl text-red-500 mt-2 opacity-90">Careers at Wing Bank</p>
+        <div class="bg-gray-50 pt-12"> <section class=" px-16 pt-12 pb-28">
+      <h1 class="text-4xl text-gray-900 font-bold">Wing Bank</h1>
+      <p class="text-2xl text-red-600 mt-2 opacity-90">Careers at Wing Bank</p>
 </section>
 
-       <!-- COMPANY CARD -->
-        <div class="max-w-6xl mx-auto -mt-20 bg-[#faf6e9] rounded-xl shadow p-6 flex gap-6 items-center text-white">
+       <div class="max-w-6xl mx-auto -mt-20 bg-white rounded-xl shadow p-6 flex gap-6 items-center text-gray-800 border border-gray-200">
 
-        <!-- LOGO -->
-      <div class="w-28 h-28 bg-white border-4 border-gray-300 rounded-lg flex items-center justify-center">
+        <div class="w-28 h-28 bg-white border-4 border-gray-200 rounded-lg flex items-center justify-center">
         <img
         src="https://i.pinimg.com/1200x/8c/60/0e/8c600eac1bf06ecd663db232c4611a39.jpg"
         alt="Wing Bank logo"
@@ -80,90 +72,81 @@
       </div>
 
 
-      <!-- INFO -->
       <div class="flex-1">
-        <h2 class="text-xl font-semibold text-[#141010]">
+        <h2 class="text-xl font-semibold text-gray-900">
           WING BANK (CAMBODIA) PLC
-          <span class="ml-2 bg-[#faf6e9] text-xs px-2 py-1 rounded text-[#141010]">Premium</span>
+          <span class="ml-2 bg-gray-100 text-xs px-2 py-1 rounded text-gray-600">Premium</span>
         </h2>
 
-        <p class="mt-1 text-[#141010]">
+        <p class="mt-1 text-gray-600">
           Wing Bank the Bank for every Cambodian, has revolutionized the way...
         </p>
 
-        <!-- TABS -->
-    <div class="flex gap-6 mt-4 text-[#2d4059] font-medium">
+        <div class="flex gap-6 mt-4 text-gray-500 font-medium">
     </div>
     </div>
     </div>
-         <!-- JOB SECTION -->
-    <section class="max-w-6xl mx-auto mt-8 bg-[#faf6e9] rounded-xl shadow p-6 text-[#141010]">
+    <!-- Recent job openings section -->
+
+          <section class="max-w-6xl mx-auto mt-8 bg-white rounded-xl shadow p-6 text-gray-800 border border-gray-100">
          <h3 class="text-lg font-semibold mb-6">Recent job openings</h3>
 
         <div class="grid md:grid-cols-3 gap-6">
 
-        <!-- JOB -->
-        <div class="border-r md:pr-4">
-            <h4 class="text-[#2d4059] font-semibold">
+        <div class="border-r border-gray-100 md:pr-4">
+            <h4 class="text-gray-900 font-semibold">
             Capital Balance Sheet Management Manager
             </h4>
-            <p class="text-[#757a79] mt-2">
+            <p class="text-gray-500 mt-2">
             Phnom Penh • Finance, Accounting, Audit
             </p>
         </div>
 
-        <!-- JOB -->
-        <div class="border-r md:pr-4">
-          <h4 class="text-[#2d4059] font-semibold">
+        <div class="border-r border-gray-100 md:pr-4">
+          <h4 class="text-gray-900 font-semibold">
             Associate Manager, Asset Liabilities Management
           </h4>
-          <p class="text-[#757a79] mt-2">
+          <p class="text-gray-500 mt-2">
             Phnom Penh • Finance, Accounting, Audit
           </p>
         </div>
 
-        <!-- JOB -->
         <div>
-          <h4 class="text-[#2d4059] font-semibold">
+          <h4 class="text-gray-900 font-semibold">
             Senior Finance Transformation Specialist
           </h4>
-          <p class="text-[#757a79] mt-2">
+          <p class="text-gray-500 mt-2">
             Phnom Penh • Finance, Accounting, Audit
           </p>
         </div>
 
       </div>
 
-      <div class="text-center mt-8 text-[#2d4059] font-semibold cursor-pointer">
+      <div class="text-center mt-8 text-gray-600 font-semibold cursor-pointer hover:text-gray-900">
         See All Jobs
       </div>
  
 
     </section>
-
-   <!-- ABOUT -->
-    <div class="max-w-6xl mx-auto bg-white mt-4 text-[#141010] text-base/6 p-4 rounded-xl shadow">
-      <h3 class="text-red-500 font-semibold mb-2">About Wing Bank</h3>
+    <!-- about section -->
+   <div class="max-w-6xl mx-auto bg-white mt-4 text-gray-800 text-base/6 p-4 rounded-xl shadow border border-gray-100">
+      <h3 class="text-red-600 font-semibold mb-2">About Wing Bank</h3>
       <p class="text-base/6"> Number One Job Portal in Cambodia. Bank is Cambodia's most widely used online professional job site and digital recruitment platform which effectively matches employers with the most suitable candidates to fill their jobs.</p>
       <p class="text-base/7">In addition, JobNet delivers advanced online recruitment software modules, aimed at helping organizations digitize their recruitment function, save time and reduce cost to hire.</p>
       <p class="text-base/8"> Wing Bank the Bank for every Cambodian, has revolutionized the way Cambodians access financial services. Since its inception in 2008, Wing Bank has become one of the fastest-growing commercial banks and one of the most trusted financial institutions in Cambodia.</p>
       <p class="text-base/9">With a clear vision of using digital solutions to improve the daily lives of every Cambodian, Wing Bank has achieved remarkable growth and now boasts the largest ecosystem in the country. It operates 23 branch offices, has over 11,000 agents, supports more than 170,000 SME merchants, and offers over 100 use cases through its user-friendly Wing Bank Mobile App.</p>
       <p class="text-base/10"> In 2023, Wing Bank inaugurated its new Head Office, Wing Bank Tower, strategically located along Preah Monivong Boulevard at the corner of Kampuchea Krom Boulevard. This architectural marvel reflects Cambodia’s rising prominence in the realm of digital banking.</p>
     </div>
-
-    <!-- job section -->
-    <div class="max-w-6xl mx-auto bg-white mt-4 text-[#141010] text-base/6 p-4 rounded-xl shadow">
-      <h2 class=" text-xl font-bold text-red-500 font-semibold mb-4">Featured Jobs</h2>
-    <div class="max-w-md  bg-white rounded-2xl shadow-md p-5 hover:shadow-lg transition">
+    <!-- card jobs section -->
+    <div class="max-w-6xl mx-auto bg-white mt-4 text-gray-800 text-base/6 p-4 rounded-xl shadow border border-gray-100">
+      <h2 class=" text-xl font-bold text-red-600 font-semibold mb-4">Featured Jobs</h2>
+    <div class="max-w-md  bg-white rounded-2xl shadow-md p-5 hover:shadow-lg transition border border-gray-200">
           
-    <!-- Job Title -->
-       <h2 class=" font-bold text-[#763feb]">Frontend Developer</h2>
+    <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
 
-    <!-- Company -->
-       <p class="text-sm text-[#757a79] mt-1">ABC Tech Company</p>
+    <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
 
-    <!-- Info Row -->
-  <div class="flex flex-wrap gap-4 mt-3 text-sm text-[#2d4059]">
+    <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
      <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -179,22 +162,19 @@
      <span> $800–$1200</span>
   </div>
 
-  <!-- Description -->
   <p class="text-sm text-gray-600 mt-3">
     We are looking for a skilled frontend developer experienced with Vue or React to build modern web applications.
   </p>
 
-  <!-- Button -->
-  <button class="mt-4 w-full bg-[#1abb9c] text-white py-2 rounded-xl font-medium hover:opacity-90 transition">
+  <button class="mt-4 w-full bg-gray-800 text-white py-2 rounded-xl font-medium hover:bg-black transition">
     Apply Now
   </button>
 
     </div>
 
     </div>
-   
-    <!-- the section baner -->
-<section class="max-w-6xl mx-auto mt-6 bg-[#faf6e9] pt-3 rounded-xl shadow p-3 text-[#141010]">
+   <!-- Gallery section -->
+    <section class="max-w-6xl mx-auto mt-6 bg-white pt-3 rounded-xl shadow p-3 text-gray-800 border border-gray-100">
     
   <div class="w-full aspect-[11/5] rounded-lg overflow-hidden">
     <img 
@@ -214,9 +194,8 @@
     class="w-full h-full object-cover">
   </div>
 </section>
-
-  <!-- AWARD SECTION -->
-<section class="max-w-6xl mx-auto mt-6 bg-[#faf6e9] rounded-xl shadow p-6 text-[#141010]">
+  <!-- award section -->
+  <section class="max-w-6xl mx-auto mt-6 bg-white rounded-xl shadow p-6 text-gray-800 border border-gray-100">
   <h2 class="text-xl font-bold text-red-600 mb-6 border-b-2 border-red-600 pb-2 inline-block">Awards & Recognitions</h2>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -236,7 +215,7 @@
           </p>
         </div>
         <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
+          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-gray-200 bg-gray-50 text-gray-600">
             VISA LEADERSHIP
           </span>
           <span class="text-xs font-bold text-red-600">2024</span>
@@ -259,7 +238,7 @@
           </p>
         </div>
         <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
+          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-gray-200 bg-gray-50 text-gray-600">
             RETAIL EXCELLENCE
           </span>
           <span class="text-xs font-bold text-red-600">2024</span>
@@ -282,7 +261,7 @@
           </p>
     </div>
     <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
+          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-gray-200 bg-gray-50 text-gray-600">
           VISA PARTNERSHIP
           </span>
           <span class="text-xs font-bold text-red-600">2024</span>
@@ -305,7 +284,7 @@
           </p>
     </div>
     <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
+          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-gray-200 bg-gray-50 text-gray-600">
           DIGITAL BANKING
           </span>
           <span class="text-xs font-bold text-red-600">2023</span>
@@ -315,7 +294,7 @@
 
   </div>
 </section>
-  </div>
+    </div>
  
 </template>
 
