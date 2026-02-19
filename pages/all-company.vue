@@ -214,33 +214,105 @@
 </section>
 
   <!-- AWARD SECTION -->
-<section class="max-w-6xl mx-auto mt-6 bg-[#faf6e9] rounded-xl shadow p-4 text-[#141010]">
-  <h2 class="text-xl font-bold text-red-500 mb-4">Awards & Recognitions</h2>
+<section class="max-w-6xl mx-auto mt-6 bg-[#faf6e9] rounded-xl shadow p-6 text-[#141010]">
+  <h2 class="text-xl font-bold text-red-600 mb-6 border-b-2 border-red-600 pb-2 inline-block">Awards & Recognitions</h2>
 
-  <div class="grid md:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-    <!-- Award Card -->
-    <div class="flex items-center gap-4 bg-white p-3 rounded-lg shadow-sm">
-      <img 
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1h6YlwmPWnA8t4dNHhGzo9tRl3tbfXFiIPA&s"
-        alt=""
-        class="w-16 h-16 object-cover rounded-full">
+    <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 group">
+      <div class="w-full sm:w-[320px] shrink-0 bg-gray-50 flex items-center justify-center overflow-hidden">
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvdttkb-3vX62eLbi1r1MUkC4F6vabN9a6Wg&s" 
+          class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+        >
+      </div>
+      <div class="p-5 flex flex-col justify-between flex-1">
+        <div>
+          <h3 class="text-lg font-bold text-red-600 line-clamp-1 uppercase">Leadership in Credit Card Activation</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed line-clamp-3">
+            At the Visa Client Appreciation Night 2024, Wing Bank was honored for its massive success in driving credit card usage. This award recognizes the bank's ability to provide instant digital card issuance and innovative cashback rewards that have revolutionized the payment habits of Cambodians.
+          </p>
+        </div>
+        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
+            VISA LEADERSHIP
+          </span>
+          <span class="text-xs font-bold text-red-600">2024</span>
+        </div>
+      </div>
+    </div>
 
-      <div>
-        <h3 class="text-sm font-semibold text-[#763feb]">
-          Best Digital Bank Cambodia 2024
-        </h3>
-        <p class="text-xs text-[#757a79]">
-      Recognized for Innovation and Leadership in Credit Activation in 2024
+    <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 group">
+      <div class="w-full sm:w-[320px] shrink-0 bg-gray-50 overflow-hidden">
+        <img 
+          src="https://www.khmertimeskh.com/wp-content/uploads/2024/10/W7307478.jpg" 
+          class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+        >
+      </div>
+      <div class="p-5 flex flex-col justify-between flex-1">
+        <div>
+          <h3 class="text-lg font-bold text-red-600 line-clamp-1 uppercase">Excellence in Retail Banking</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed line-clamp-3">
+            Honored for providing a comprehensive suite of retail products that empower everyday Cambodians. The award acknowledges Wing Bank's massive physical branch expansion and its commitment to financial inclusion through easy-to-access savings and loan services.
+          </p>
+        </div>
+        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
+            RETAIL EXCELLENCE
+          </span>
+          <span class="text-xs font-bold text-red-600">2024</span>
+        </div>
+      </div>
+    </div>
 
-      Wing Bank is proud to announce that it has received two prestigious awards from Visa, the global leader in digital payments, further solidifying its role as a trailblazer in Cambodia’s financial sector. The accolades were presented at Visa’s Client Appreciation Night 2025.
-        </p>
+    <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 group">
+      <div class="w-full sm:w-[320px] shrink-0 bg-gray-50 overflow-hidden">
+        <img 
+          src="https://cdn.kiripost.com/static/images/W7303058.2e16d0ba.fill-960x540.jpg" 
+          class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+        >
+      </div>
+      <div class="p-5 flex flex-col justify-between flex-1">
+        <div>
+          <h3 class="text-lg font-bold text-red-600 line-clamp-1 uppercase">Digital Payment Innovation</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed line-clamp-3">
+            Awarded for Wing Bank's role as a primary mover in the cashless revolution. By facilitating secure, instant QR payments and international card transactions, the bank has significantly modernized the digital payment landscape for merchants and travelers across the Kingdom.
+          </p>
+        </div>
+        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
+            VISA PARTNERSHIP
+          </span>
+          <span class="text-xs font-bold text-red-600">2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 group">
+      <div class="w-full sm:w-[320px] shrink-0 bg-gray-50 overflow-hidden">
+        <img 
+          src="https://www.khmertimeskh.com/wp-content/uploads/2023/12/1-Main-.jpg" 
+          class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+        >
+      </div>
+      <div class="p-5 flex flex-col justify-between flex-1">
+        <div>
+          <h3 class="text-lg font-bold text-red-600 line-clamp-1 uppercase">Best Consumer Digital Bank</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed line-clamp-3">
+            Named by Global Finance as the leader in consumer digital banking. This recognizes the Wing Bank App as a top-tier financial ecosystem, offering everything from utility payments and payroll to advanced investment tools for millions of users.
+          </p>
+        </div>
+        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+          <span class="inline-block px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-200 bg-blue-50 text-blue-600">
+            DIGITAL BANKING
+          </span>
+          <span class="text-xs font-bold text-red-600">2023</span>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
-
   </div>
  
 </template>
