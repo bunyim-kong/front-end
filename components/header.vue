@@ -11,7 +11,7 @@
             class="menu menu-l dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-4 shadow">
             <li><NuxtLink to="/">Home</NuxtLink></li>
             <li><NuxtLink to="/">Job Category</NuxtLink></li>
-            <li><NuxtLink to="/">All Company</NuxtLink></li>
+            <li><NuxtLink to="/all-company">All Company</NuxtLink></li>
             <li><NuxtLink to="/">About</NuxtLink></li>
           </ul>
         </div>

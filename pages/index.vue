@@ -96,6 +96,82 @@
       </div>
     </section>
 
+    <!-- how it work -->
+    <section class="py-16 md:py-20 bg-gradient-to-b from-white to-slate-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-5">
+            Start Your Journey in <span class="text-primary">3 Simple Steps</span>
+          </h2>
+          <p class="text-lg text-slate-600">
+            Getting your next role has never been easier. Follow these steps and connect with great opportunities today.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <!-- Step 1 -->
+          <div class="relative bg-white rounded-2xl p-8 border-2 border-black-900 hover: traslate-y-[-8px] transition-all group">
+            <div class="absolute -top-5 left-8 w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center text-2xl font-bold shadow-lg">
+              1
+            </div>
+            <div class="mt-6">
+              <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 mb-3">Create Your Profile</h3>
+              <p class="text-slate-600">
+                Add your experience, skills, resume, and what you're looking for — it takes under 3 minutes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative bg-white rounded-2xl p-8 border-2 border-black-900 hover: traslate-y-[-8px] transition-all group">
+            <div class="absolute -top-5 left-8 w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center text-2xl font-bold shadow-lg">
+              2
+            </div>
+            <div class="mt-6">
+              <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 mb-3">Discover & Apply</h3>
+              <p class="text-slate-600">
+                Browse verified jobs, filter by salary/location/type, and apply directly with one click.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative bg-white rounded-2xl p-8 border-2 border-black-900 hover: translate-y-[-8px] transition-all group">
+            <div class="absolute -top-5 left-8 w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center text-2xl font-bold shadow-lg">
+              3
+            </div>
+            <div class="mt-6">
+              <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 mb-3">Get Hired</h3>
+              <p class="text-slate-600">
+                Connect directly with hiring managers, get fast feedback, and land your next role.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button class="btn btn-primary h-14 px-12 py-4 text-lg rounded-xl hover: transition-all">
+            Get Started Now — It's Free
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- featured job section -->
     <section class="mb-16">
       <h1 class="text-4xl font-extrabold text-center text-slate-900 mt-12 mb-12">Featured Jobs</h1>
