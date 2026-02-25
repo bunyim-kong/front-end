@@ -744,3 +744,20 @@
     </section>
   </div>
 </template>
+
+<script>
+import axios from 'axios';
+async function fetchData() {
+  try {
+    const response = await axios.get('http://localhost:1337/api/companies');
+    // Destructure the data directly from the response object
+    const companyData = response.data.data;
+    console.log(companyData);
+    
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+fetchData();
+</script>
