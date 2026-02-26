@@ -11,9 +11,9 @@
           </div>
           <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-4 shadow">
             <li><NuxtLink to="/">Home</NuxtLink></li>
-            <li><NuxtLink to="/">Job Category</NuxtLink></li>
+            <li><NuxtLink to="/category">Job Category</NuxtLink></li>
             <li><NuxtLink to="/all-company">All Company</NuxtLink></li>
-            <li><NuxtLink to="/">About</NuxtLink></li>
+            <li><NuxtLink to="/about">About</NuxtLink></li>
           </ul>
         </div>
       </div>
