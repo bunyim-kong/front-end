@@ -1,3 +1,46 @@
+<script setup>
+  import { ref, onMounted } from 'vue';
+  import axios from 'axios';
+
+  // តាងអថេរសម្រាប់រក្សាទុកទិន្នន័យក្រុមហ៊ុន និងការផ្សព្វផ្សាយការងារ
+  const companies = ref([]);
+  const jobPosings = ref([]);
+
+  // ការអោយសិទ្ធិ API ត្រូវបានកំណត់នៅក្នុងកូដនេះ ដើម្បីអនុញ្ញាតឱ្យយើងទាញយកទិន្នន័យពី Strapi API។ សូមប្រាកដថាអ្នកបានប្តូរតម្លៃ `Authorization` ជាមួយនឹង token ដែលត្រឹមត្រូវសម្រាប់ការទាញយកទិន្នន័យពី Strapi API របស់អ្នក។
+  const config = {
+    headers: { Authorization: `Bearer 31271e43b98cc7d59389d5a3522a318dec24b1b711f728e3179083c09cdd392a990a2c5f493a44779eac98bcb724f848aa22d5a5fc548c634e3ee82eaed5529b04daa73026d3e98f53a60bd7d306d477a5bd8f9e8339ebc0ab55d0a8ad1ed5ff82b8cb58af3bba3458e500031239f686ce7f904e60ff08f904923eef9c7ca1d5` }
+  };
+
+  onMounted(() => {
+    fetchCompanies();
+    fetchJobPosings();
+  });
+
+  async function fetchCompanies() {
+    try {
+      const response = await axios.get('http://localhost:1337/api/companies', config);
+      companies.value = response.data.data;
+      console.log(companies.value);
+    } 
+
+    catch (error) {
+      console.error('Error fetching companies:', error);
+    }
+  }
+
+  async function fetchJobPosings() {
+    try {
+      const response = await axios.get('http://localhost:1337/api/jobpostings', config);
+      jobPosings.value = response.data.data;
+      console.log(jobPosings.value);
+    } 
+     
+    catch (error) {
+      console.error('Error fetching job positions:', error);
+    }
+  }
+</script>
+
 <template>
   <div data-theme="light" class="min-h-screen bg-slate-50">
     <!-- hero section -->
@@ -176,12 +219,10 @@
     <section class="mb-16">
       <h1 class="text-4xl font-extrabold text-center text-slate-900 mt-12 mb-12">Featured Jobs</h1>
 
-        <div class="container mx-auto grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 mt-10">
+        <div class="container grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6 mt-10">
 
-          <NuxtLink to="/job_detail" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
+          <NuxtLink v-for="job in jobPosings.slice(0, 3)" :key="job.id" to="/job_detail" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
+            <h2 class=" font-bold text-gray-900">{{ job.title }}</h2>
 
             <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
               <span class="flex items-center gap-1">
@@ -189,99 +230,21 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
-                Phnom Penh
+                {{ job.location }}
               </span>
 
               <span class="flex items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
                 </svg>
-                Full Time
+                {{ job.job_type }}
               </span>
 
               <span class="flex items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
-                $800–$1200
-                </span>
-            </div>
-
-            <p class="text-sm text-gray-600 mt-3">
-              We are looking for a skilled frontend developer experienced with Vue or React to build modern web applications.
-            </p>
-
-            <button class="btn-primary w-full h-12 mt-4 rounded-xl normal-case text-sm border border-black-100 shadow-none hover:brightness-105 active:scale-95 transition-all">
-              Apply Now
-            </button>
-
-          </NuxtLink>
-
-          <NuxtLink to="/" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
-
-            <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                </svg>
-                Phnom Penh
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                Full Time
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                $800–$1200
-                </span>
-            </div>
-
-            <p class="text-sm text-gray-600 mt-3">
-              We are looking for a skilled frontend developer experienced with Vue or React to build modern web applications.
-            </p>
-
-            <button class="btn-primary w-full h-12 mt-4 rounded-xl normal-case text-sm border border-black-100 shadow-none hover:brightness-105 active:scale-95 transition-all">
-              Apply Now
-            </button>
-
-          </NuxtLink>
-
-          <NuxtLink to="/" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
-
-            <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                </svg>
-                Phnom Penh
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                Full Time
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                $800–$1200
+                {{ job.salary_range }}
                 </span>
             </div>
 
@@ -445,12 +408,10 @@
     <section class="mb-16">
       <h1 class="text-4xl font-extrabold text-center text-slate-900 mt-12 mb-12">Featured Jobs</h1>
 
-        <div class="container mx-auto grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 mt-10">
+        <div class="container mx-auto grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6 mt-10">
 
-          <NuxtLink to="/" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
+          <NuxtLink v-for="job in jobPosings.slice(3, 9)" :key="job.id" to="/job_detail" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
+            <h2 class=" font-bold text-gray-900">{{ job.title }}</h2>
 
             <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
               <span class="flex items-center gap-1">
@@ -458,99 +419,21 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
-                Phnom Penh
+                {{ job.location }}
               </span>
 
               <span class="flex items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
                 </svg>
-                Full Time
+                {{ job.job_type }}
               </span>
 
               <span class="flex items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
-                $800–$1200
-                </span>
-            </div>
-
-            <p class="text-sm text-gray-600 mt-3">
-              We are looking for a skilled frontend developer experienced with Vue or React to build modern web applications.
-            </p>
-
-            <button class="btn-primary w-full h-12 mt-4 rounded-xl normal-case text-sm border border-black-100 shadow-none hover:brightness-105 active:scale-95 transition-all">
-              Apply Now
-            </button>
-
-          </NuxtLink>
-
-          <NuxtLink to="/" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
-
-            <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                </svg>
-                Phnom Penh
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                Full Time
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                $800–$1200
-                </span>
-            </div>
-
-            <p class="text-sm text-gray-600 mt-3">
-              We are looking for a skilled frontend developer experienced with Vue or React to build modern web applications.
-            </p>
-
-            <button class="btn-primary w-full h-12 mt-4 rounded-xl normal-case text-sm border border-black-100 shadow-none hover:brightness-105 active:scale-95 transition-all">
-              Apply Now
-            </button>
-
-          </NuxtLink>
-
-          <NuxtLink to="/" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
-
-            <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                </svg>
-                Phnom Penh
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                Full Time
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                $800–$1200
+                {{ job.salary_range }}
                 </span>
             </div>
 
@@ -571,90 +454,28 @@
       <div class="container mx-auto px-4">
         <h1 class="text-4xl font-extrabold text-center text-slate-900 mb-12">Featured Companies</h1>
 
-        <div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-8">
           <!-- company card -->
-          <div class="group relative bg-slate-50 rounded-2xl p-8 transition-all duration-500 border-2 border-slate-200 hover:translate-y-[-8px]">
+          <div v-for="company in companies.slice(0,3)" :key="company.id" class="group relative bg-slate-50 rounded-2xl p-8 transition-all duration-500 border-2 border-slate-200 hover:translate-y-[-8px]">
             <div class="flex flex-col h-full">
               <div class="card-header flex items-center mb-6">
-                <div class="h-16 w-16 flex items-center justify-center bg-white rounded-2xl shadow-sm overflow-hidden group-hover:rotate-12 transition-transform">
-                  <img src="https://blackdurian.com/wp-content/uploads/2025/09/logo-black-durain.gif" alt="Black Durian Logo" class="w-full h-full object-cover">
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 ml-4 tracking-tight">Black Durian</h3>
+                <h3 class="text-2xl font-bold text-gray-900 ml-4 tracking-tight">{{ company.company_name }}</h3>
               </div>
 
               <div class="mb-3">
-                <span class="text-[11px] font-bold tracking-[0.2em] text-[#763febb6] uppercase border border-[#763feb57] px-3 py-1 rounded-full">Creative Agency</span>
+                <span class="text-[11px] font-bold tracking-[0.2em] text-[#763febb6] uppercase border border-[#763feb57] px-3 py-1 rounded-full">{{ company.industry }}</span>
               </div>
 
               <p class="flex items-center mb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#763feb]">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
-                <span class="text-[14px] text-gray-600 ml-2 font-medium">+32 Open Positions</span>
+                <span class="text-[14px] text-gray-600 ml-2 font-medium">{{ company.location }}</span>
               </p>
 
               <p class="text-gray-600 text-sm leading-relaxed flex-grow mb-6">
                 A boutique creative agency defining modern branding. We're looking for disruptive designers and bold strategists.
-              </p>
-
-              <a href="#" class="btn-primary flex items-center justify-center">
-                See Our Work
-              </a>
-            </div>
-          </div>
-
-          <div class="group relative bg-slate-50 rounded-2xl p-8 transition-all duration-500 border-2 border-slate-200 hover:translate-y-[-8px]">
-            <div class="flex flex-col h-full">
-              <div class="card-header flex items-center mb-6">
-                <div class="h-16 w-16 flex items-center justify-center bg-white rounded-2xl shadow-sm overflow-hidden group-hover:rotate-12 transition-transform">
-                  <img src="https://hrincjobs-pro.s3.amazonaws.com/media/public/filer_public/f8/88/f888d4b0-f249-404a-b7a3-16aa0c356a8b/download.png" alt="Ezecom Logo" class="w-full h-full object-cover">
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 ml-4 tracking-tight">Ezecom</h3>
-              </div>
-
-              <div class="mb-3">
-                <span class="text-[11px] font-bold tracking-[0.2em] text-red-600/70 uppercase border border-red-200 px-3 py-1 rounded-full">ISP & Cloud</span>
-              </div>
-
-              <p class="flex items-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-red-600">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                <span class="text-[14px] text-gray-600 ml-2 font-medium">+18 Open Positions</span>
-              </p>
-
-              <p class="text-gray-600 text-sm leading-relaxed flex-grow mb-6">
-                The premium choice for internet and cloud infrastructure. We build the connectivity that powers Cambodia's biggest businesses.
-              </p>
-
-              <a href="#" class="btn-primary flex items-center justify-center">
-                See Our Work
-              </a>
-            </div>
-          </div>
-
-          <div class="group relative bg-slate-50 rounded-2xl p-8 transition-all duration-500 border-2 border-slate-200 hover:translate-y-[-8px]">
-            <div class="flex flex-col h-full">
-              <div class="card-header flex items-center mb-6">
-                <div class="h-16 w-16 flex items-center justify-center bg-white rounded-2xl shadow-sm overflow-hidden group-hover:rotate-12 transition-transform">
-                  <img src="https://cdn.aptoide.com/imgs/c/f/f/cffec3f2fc237b5e9baefcff21783b7c_icon.png" alt="Wing Bank Logo" class="w-full h-full object-cover">
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 ml-4 tracking-tight">Wing Bank</h3>
-              </div>
-
-              <div class="mb-3">
-                <span class="text-[11px] font-bold tracking-[0.2em] text-blue-600/70 uppercase border border-blue-200 px-3 py-1 rounded-full">Fintech & Banking</span>
-              </div>
-
-              <p class="flex items-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                <span class="text-[14px] text-gray-600 ml-2 font-medium">+14 Open Positions</span>
-              </p>
-
-              <p class="text-gray-600 text-sm leading-relaxed flex-grow mb-6">
-                Empowering every Cambodian with smart financial solutions. Join the team that's leading the digital payment revolution.
               </p>
 
               <a href="#" class="btn-primary flex items-center justify-center">
@@ -744,20 +565,3 @@
     </section>
   </div>
 </template>
-
-<script>
-import axios from 'axios';
-async function fetchData() {
-  try {
-    const response = await axios.get('http://localhost:1337/api/companies');
-    // Destructure the data directly from the response object
-    const companyData = response.data.data;
-    console.log(companyData);
-    
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-}
-
-fetchData();
-</script>
