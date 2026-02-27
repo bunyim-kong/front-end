@@ -178,7 +178,7 @@
 
         <div class="container mx-auto grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 mt-10">
 
-          <NuxtLink to="/" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
+          <NuxtLink to="/job_detail" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
             <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
 
             <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
