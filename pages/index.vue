@@ -456,7 +456,7 @@
 
         <div class="grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-8">
           <!-- company card -->
-          <div v-for="company in companies.slice(0,3)" :key="company.id" class="group relative bg-slate-50 rounded-2xl p-8 transition-all duration-500 border-2 border-slate-200 hover:translate-y-[-8px]">
+          <NuxtLink to="/company_detail" v-for="company in companies.slice(0,3)" :key="company.id" class="group relative bg-slate-50 rounded-2xl p-8 transition-all duration-500 border-2 border-slate-200 hover:translate-y-[-8px]">
             <div class="flex flex-col h-full">
               <div class="card-header flex items-center mb-6">
                 <h3 class="text-2xl font-bold text-gray-900 ml-4 tracking-tight">{{ company.company_name }}</h3>
@@ -482,7 +482,7 @@
                 See Our Work
               </a>
             </div>
-          </div>
+          </NuxtLink>
 
         </div>
       </div>

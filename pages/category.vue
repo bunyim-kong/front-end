@@ -210,5 +210,5 @@
           </NuxtLink>
         </div>
       </section>
-  </div>
+    </div>
 </template>

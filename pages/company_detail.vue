@@ -1,11 +1,35 @@
+<script setup>
+  import { ref, onMounted } from 'vue';
+  import axios from 'axios';
+
+  const jobPosings = ref([]);
+
+  const config = {
+    headers: { Authorization: `Bearer 31271e43b98cc7d59389d5a3522a318dec24b1b711f728e3179083c09cdd392a990a2c5f493a44779eac98bcb724f848aa22d5a5fc548c634e3ee82eaed5529b04daa73026d3e98f53a60bd7d306d477a5bd8f9e8339ebc0ab55d0a8ad1ed5ff82b8cb58af3bba3458e500031239f686ce7f904e60ff08f904923eef9c7ca1d5` }
+  };
+
+  onMounted(() => {
+    fetchJobPosings();
+  });
+
+  async function fetchJobPosings() {
+    try {
+      const response = await axios.get('http://localhost:1337/api/jobpostings', config);
+      jobPosings.value = response.data.data;
+      console.log(jobPosings.value);
+    } 
+     
+    catch (error) {
+      console.error('Error fetching job positions:', error);
+    }
+  }
+</script>
+
 <template>
   <div class="bg-slate-50 min-h-screen pb-20">
 
-    <!-- ==================== Company Hero ==================== -->
-    <div class="section bg-white pt-12 pb-16">
+    <section class="container section bg-white pt-12 pb-16">
       <div class="section max-w-7xl mx-auto px-6 lg:px-8">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Wing Bank</h1>
-        <p class="mt-3 text-2xl md:text-3xl text-red-600 font-medium">Careers at Wing Bank</p>
 
         <div class="mt-10 bg-white rounded-2xl border border-gray-200 p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-10 items-start md:items-center">
           <div class="w-32 h-32 md:w-40 md:h-40 bg-white border-4 border-gray-100 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0 shadow-sm">
@@ -32,96 +56,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ==================== Recent Job Openings ==================== -->
     <section class="max-w-7xl mx-auto px-6 lg:px-8 -mt-8">
       <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-8">
         <h3 class="text-2xl font-bold text-gray-900 mb-8">Recent Job Openings</h3>
 
         <div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
-          <NuxtLink to="/job_detail" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
-
-            <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                </svg>
-                Phnom Penh
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                Full Time
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                $800–$1200
-                </span>
-            </div>
-
-            <p class="text-sm text-gray-600 mt-3">
-              We are looking for a skilled frontend developer experienced with Vue or React to build modern web applications.
-            </p>
-
-            <button class="btn-primary w-full h-12 mt-4 rounded-xl normal-case text-sm border border-black-100 shadow-none hover:brightness-105 active:scale-95 transition-all">
-              Apply Now
-            </button>
-
-          </NuxtLink>
-
-          <NuxtLink to="/job_detail" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
-
-            <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                </svg>
-                Phnom Penh
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-                </svg>
-                Full Time
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                $800–$1200
-                </span>
-            </div>
-
-            <p class="text-sm text-gray-600 mt-3">
-              We are looking for a skilled frontend developer experienced with Vue or React to build modern web applications.
-            </p>
-
-            <button class="btn-primary w-full h-12 mt-4 rounded-xl normal-case text-sm border border-black-100 shadow-none hover:brightness-105 active:scale-95 transition-all">
-              Apply Now
-            </button>
-
-          </NuxtLink>
-
-          <NuxtLink to="/job_detail" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
-            <h2 class=" font-bold text-gray-900">Frontend Developer</h2>
-
-            <p class="text-sm text-gray-500 mt-1">ABC Tech Company</p>
+          <NuxtLink v-for="job in jobPosings.slice(0, 3)" :key="job.id" :to="`/job/${job.id}`" class="max-w-md  bg-white border-2 border-black-900 rounded-2xl p-5 transition-all duration-200 ease-in-out hover:translate-y-[-8px]">
+            <h2 class=" font-bold text-gray-900">{{ job.title }}</h2>
 
             <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
               <span class="flex items-center gap-1">
@@ -158,18 +101,17 @@
           </NuxtLink>
         </div>
 
-        <div class="text-center mt-10">
-          <button class="text-red-600 font-semibold hover:text-red-800 transition flex items-center gap-2 mx-auto text-lg">
+        <div class="flex justify-center items-center text-center mt-10 hover:underline">
+          <NuxtLink to="/all-company" class="text-red-600 font-semibold hover:text-red-800 transition flex items-center gap-2 mx-auto text-lg">
             See All Jobs
             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </section>
 
-    <!-- ==================== About Wing Bank ==================== -->
     <section class="max-w-7xl mx-auto lg:px-8 mt-12">
       <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 lg:p-10">
         <h3 class="text-3xl font-bold text-red-600 mb-8">About Wing Bank</h3>
@@ -184,51 +126,6 @@
       </div>
     </section>
 
-    <!-- ==================== Featured Jobs ==================== -->
-    <section class="max-w-7xl mx-auto px-6 lg:px-8 mt-12">
-      <h2 class="text-3xl font-bold text-red-600 mb-8">Featured Jobs</h2>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Example Featured Job Card -->
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-          <h3 class="font-bold text-xl text-gray-900">Frontend Developer</h3>
-          <p class="text-sm text-gray-600 mt-1">ABC Tech Company</p>
-
-          <div class="flex flex-wrap gap-4 mt-4 text-sm text-gray-600">
-            <div class="flex items-center gap-2">
-              <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0zM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-              </svg>
-              Phnom Penh
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18..." />
-              </svg>
-              Full Time
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m-3-2.818..." />
-              </svg>
-              $800–$1,200
-            </div>
-          </div>
-
-          <p class="text-sm text-gray-700 mt-4 line-clamp-3">
-            We are looking for a skilled frontend developer experienced with Vue or React to build modern web applications.
-          </p>
-
-          <button class="mt-6 w-full bg-red-600 text-white py-3 rounded-xl font-semibold hover:bg-red-700 active:scale-95 transition-all">
-            Apply Now
-          </button>
-        </div>
-
-        <!-- You can duplicate the above block for more featured jobs -->
-      </div>
-    </section>
-
-    <!-- ==================== Gallery ==================== -->
     <section class="max-w-7xl mx-auto px-6 lg:px-8 mt-12">
       <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden p-6">
         <div class="grid gap-6">
@@ -294,8 +191,3 @@
 
   </div>
 </template>
-
-<script setup>
-// You can later fetch real data here
-// const company = await $fetch('/api/companies/wing-bank')
-</script>
